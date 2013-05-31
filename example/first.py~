@@ -1,0 +1,18 @@
+import re
+
+
+file = open('map.svg','r');
+file = file.read()
+
+partNo = 53
+
+reg = re.compile("\"path" + str(No) + "\"[^>]*?style[\s\S]*?/>|style=[\s\S]{200,300}path" + str(No))
+
+part = reg.findall(file)[0]
+
+
+
+def changeColor()
+re.sub("color:#[0-9a-f]{6}","color:#123456",part)
+
+
