@@ -58,14 +58,17 @@ file = file.read()
 
 
 def changeIt(No):
-    No = 24
-    
-    reg = re.compile("id=\"path" + str(No) + "\"[^>]*?style[\s\S]*?/>|style=[\s\S]{200,300}path" + str(No))
-
-    global part
+    global part    
+    res = 0
+    now = 10
+    while res == 0:
+        reg = re.compile("id=\"" + str(No) + "\"[^>]*?style[\s\S]*?/>|style=[\s\S]{1," + str(now)+ "}?id=\"" + str(No)+"\"")
+        if len(reg.findall(file)) > 0:
+            res = 1
+        now += 10
     part = reg.findall(file)[0]
 
-#    print(part)
+    print(part)
 
 
 for line in fileinput.input():
@@ -93,4 +96,3 @@ for line in fileinput.input():
             changeStroke(R,G,W)
 
 print(file)
-    
