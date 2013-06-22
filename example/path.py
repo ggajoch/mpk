@@ -24,7 +24,7 @@ def nothingLoop():
 
 def changeStroke(R, G, width):
     kol = "%02x%02x" % (R, G)
- #   print(kol)
+#    print(kol)
 
     global part
     global file
@@ -32,6 +32,10 @@ def changeStroke(R, G, width):
     tmp = part
     tmp = re.sub("stroke:#[0-9a-f]{6}","stroke:#" + kol + "00",tmp)
     tmp = re.sub("stroke-width:[0-9]{0,3};","stroke-width:" + str(width) + ";",tmp)
+    
+    if R == 128 and G == 0:
+#        print("AAAAA")
+        tmp = re.sub("stroke-dasharray:none", "stroke-dasharray:48,48",tmp);
     #print(tmp)
     file = re.sub(part,tmp,file)
 
@@ -70,7 +74,7 @@ def changeIt(No):
         if now > 5000:
             part = ""
             break;
-        now += 10
+        now += 100
 
 #    print(part)
 
