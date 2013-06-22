@@ -35,7 +35,7 @@ def changeStroke(R, G, width):
     
     if R == 128 and G == 0:
 #        print("AAAAA")
-        tmp = re.sub("stroke-dasharray:none", "stroke-dasharray:48,48",tmp);
+        tmp = re.sub("stroke-dasharray:none", "stroke-dasharray:4.8,4.8",tmp);
     #print(tmp)
     file = re.sub(part,tmp,file)
 
