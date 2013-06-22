@@ -44,14 +44,10 @@ def changeStroke(R, G, width):
 
 
 def strokeOpacity():
-    kol = "%02x%02x" % (R, G)
- #   print(kol)
-
     global part
     global file
-    #print(part)
     tmp = part
-    tmp = re.sub("strokeOpacity:[\S]{0,10};","stroke:0;",tmp)
+    tmp = re.sub("stroke-opacity:[\S]{0,10};","stroke-opacity:0;",tmp)
     #print(tmp)
     file = re.sub(part,tmp,file)
 
